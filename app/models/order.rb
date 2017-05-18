@@ -4,4 +4,6 @@ class Order < ApplicationRecord
   vaildates :billing_address, presence: true
   vaildates :shipping_name, presence: true
   vaildates :shipping_address, presence: true
+
+  has_many :products_lists
 end
