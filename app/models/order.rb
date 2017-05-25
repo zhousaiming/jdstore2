@@ -13,10 +13,10 @@ class Order < ApplicationRecord
   has_many :product_lists
 
   def set_payment_with!(method)
-    self.update_columns(payment_method:method )
+    self.update_columns(payment_method: method )
   end
 
-  def ply!
+  def pay!
    self.update_columns(is_paid: true)
   end
 
@@ -31,7 +31,7 @@ class Order < ApplicationRecord
     state :good_returned
 
     event :make_payment, after_commit: :pay! do
-      transitions from: :order_placed, to: :paid
+       transitions from: :order_placed, to: :paid
     end
 
   event :ship do
