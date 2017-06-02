@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # resources :welcome do
+  # end
+  # root 'welcome#index'
   root 'products#index'
 
     devise_for :users
